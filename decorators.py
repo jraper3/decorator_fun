@@ -45,16 +45,13 @@ def debug(orig_func=None, *, throw_err=False, print_dbg=False, logfile=None):
 	else:
 		return _decorate
 
-
 @debug(throw_err=True)
 def raise_error(*args, **kwargs):
 	raise Exception('OhNoes!!! An Errooooooor!!!!!!')
 
-
 @debug
 def log_error(*args, **kwargs):
 	raise Exception('OhNoes!!! An Errooooooor!!!!!!')
-
 
 @debug(print_dbg=True)
 def print_error(*args, **kwargs):
