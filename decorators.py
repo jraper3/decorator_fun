@@ -11,6 +11,13 @@ import datetime
 
 
 # Code Start
+def docstring(value):
+	@wraps(func)
+	def wrapper(func):
+		func.__doc__ = value
+		return func
+	return wrapper
+
 def debug(orig_func=None, *, throw_err=False, print_dbg=False, logfile=None):
 	def _decorate(func):
 		if not logfile:
@@ -57,8 +64,17 @@ def log_error(*args, **kwargs):
 def print_error(*args, **kwargs):
 	raise Exception('OhNoes!!! An Errooooooor!!!!!!')
 
+test_doc = """Here's a test docsstring which will later be assigned to a function.
+Good for if you want to keep all your docstrings in a single place and make your
+code a little less messy."
+
+@docstring(test_doc)
+def print_my_doc():
+	print(help(print_my_doc))
+
 
 if __name__ == '__main__':
+	print_my_doc()
 	print('logging...')
 	log_error()
 	print('printing...')
