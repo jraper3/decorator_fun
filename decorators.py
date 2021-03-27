@@ -66,7 +66,7 @@ def print_error(*args, **kwargs):
 
 test_doc = """Here's a test docsstring which will later be assigned to a function.
 Good for if you want to keep all your docstrings in a single place and make your
-code a little less messy."
+code a little less messy."""
 
 @docstring(test_doc)
 def print_my_doc():
